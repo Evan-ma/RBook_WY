@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mainModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=F:\VS\RBook_WY\DB\book.db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="t_moudle">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="png" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="url" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="zs" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="upcode" Type="nvarchar" MaxLength="2147483647" />
+  </EntityType>
+  <EntityType Name="t_web">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="url" Type="nvarchar" MaxLength="2147483647" />
+  </EntityType>
+  <EntityContainer Name="mainModelStoreContainer">
+    <EntitySet Name="t_moudle" EntityType="Self.t_moudle" store:Type="Tables" />
+    <EntitySet Name="t_web" EntityType="Self.t_web" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

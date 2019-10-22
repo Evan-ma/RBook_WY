@@ -295,3 +295,4 @@ F:\VS\RBook_WY\obj\Debug\R_bookWY.csproj.CoreCompileInputs.cache
 F:\VS\RBook_WY\obj\Debug\R_bookWY.csproj.CopyComplete
 F:\VS\RBook_WY\obj\Debug\R_bookWY.dll
 F:\VS\RBook_WY\obj\Debug\R_bookWY.pdb
+F:\VS\RBook_WY\bin\zh-Hans\EntityFramework.resources.dll

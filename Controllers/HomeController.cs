@@ -1,7 +1,9 @@
 ﻿using R_bookWY.Class;
+using R_bookWY.Models;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace R_bookWY.Controllers
@@ -18,35 +20,32 @@ namespace R_bookWY.Controllers
         }
         public ActionResult getParentMeun()
         {
+            BookEntities bk = new BookEntities();
             //获取所有的菜单(包括子菜单和父级菜单)
             List<MeunInfo> list = new List<MeunInfo>();
-            CY C = new CY();
             string sql = "select * from t_moudle where upcode = '-1'";
-            DataTable dt = C.ZxSql(sql);
-            for (int i = 0; i < dt.Rows.Count; i++)
-
+            List<t_moudle> tu = bk.Database.SqlQuery<t_moudle>(sql).ToList();
+            for (int i = 0; i < tu.Count; i++)
             {
                 MeunInfo mi = new MeunInfo();
-                {
-                    mi.id = dt.Rows[i]["id"].ToString();
-                    mi.meunTitle = dt.Rows[i]["name"].ToString();
-                    mi.meunUrl = dt.Rows[i]["url"].ToString();
-                    mi.meunParent = dt.Rows[i]["upcode"].ToString();
-                    mi.childrenList = new List<MeunInfo>();
-                    list.Add(mi);
-                }
+                mi.id = tu[i].id;
+                mi.meunTitle = tu[i].name;
+                mi.meunUrl = tu[i].url;
+                mi.meunParent = tu[i].upcode;
+                mi.childrenList = new List<MeunInfo>();
+                list.Add(mi);
             }
             for (int i = 0; i < list.Count; i++)
             {
-                sql = "select * from t_moudle where upcode = '"+ list[i].id + "'";
-                DataTable dtp = C.ZxSql(sql);
-                for (int p = 0; p < dtp.Rows.Count; p++)
+                sql = "select * from t_moudle where upcode = '" + list[i].id + "'";
+                List<t_moudle> tup = bk.Database.SqlQuery<t_moudle>(sql).ToList();
+                for (int p = 0; p < tup.Count; p++)
                 {
                     MeunInfo mi = new MeunInfo();
-                    mi.id = dtp.Rows[p]["id"].ToString();
-                    mi.meunTitle = dtp.Rows[p]["name"].ToString();
-                    mi.meunUrl = dtp.Rows[p]["url"].ToString();
-                    mi.meunParent = dtp.Rows[p]["upcode"].ToString();
+                    mi.id = tup[i].id;
+                    mi.meunTitle = tup[i].name;
+                    mi.meunUrl = tup[i].url;
+                    mi.meunParent = tup[i].upcode;
                     list[i].childrenList.Add(mi);
                 }
             }

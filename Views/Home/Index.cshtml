@@ -70,13 +70,11 @@
             var layer = layui.layer;  //layer初始化
             var $ = layui.jquery, element = layui.element;
             element.on('nav(cbcdl)', function (elem) {
-
-                alert(elem.text());
-
-                 //layui.use("layer", function () {
-                 //    var layer = layui.layer;  //layer初始化
-                 //    layer.msg(elem.text());
-                 //});
+               // alert(elem.text());
+                 layui.use("layer", function () {
+                     var layer = layui.layer;  //layer初始化
+                     layer.msg(elem.text());
+                 });
              });
             //获取所有的菜单
             $.ajax({

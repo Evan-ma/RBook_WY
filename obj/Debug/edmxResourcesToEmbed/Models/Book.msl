@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="mainModelStoreContainer" CdmEntityContainer="BookEntities">
+    <EntitySetMapping Name="t_moudle">
+      <EntityTypeMapping TypeName="mainModel.t_moudle">
+        <MappingFragment StoreEntitySet="t_moudle">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="png" ColumnName="png" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="zs" ColumnName="zs" />
+          <ScalarProperty Name="upcode" ColumnName="upcode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_web">
+      <EntityTypeMapping TypeName="mainModel.t_web">
+        <MappingFragment StoreEntitySet="t_web">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="url" ColumnName="url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
