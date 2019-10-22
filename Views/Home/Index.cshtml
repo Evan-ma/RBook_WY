@@ -10,6 +10,9 @@
     <link href="~/Image/book.png" rel="shortcut icon" />
     <link rel="stylesheet" href="~/Scripts/layui/src/css/layui.css">
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/getFunction/getFunction.js"></script>
+    <script src="~/Scripts/sygl/sygl.js"></script>
+
 </head>
 <body class="layui-layout-body">
     <div class="layui-layout layui-layout-admin">
@@ -40,7 +43,7 @@
             <div class="layui-body">
                 <!-- 内容主体区域 -->
                 <div style="padding: 15px;">内容主体区域</div>
-                <div class="layui-tab" lay-filter="demo" lay-allowclose="true">
+                <div class="layui-tab" lay-filter="test" lay-allowclose="true">
                     <ul class="layui-tab-title">
                         <li class="layui-this" lay-id="11">网站设置</li>
                         <li lay-id="22">用户管理</li>
@@ -51,6 +54,7 @@
                     <div class="layui-tab-content">
                         <div class="layui-tab-item layui-show">内容1</div>
                         <div class="layui-tab-item">内容2</div>
+                        <div class="layui-tab-item">内容3</div>
                         <div class="layui-tab-item">内容4</div>
                         <div class="layui-tab-item">内容5</div>
                     </div>
@@ -67,14 +71,22 @@
     <script>
         //JavaScript代码区域
         layui.use('element', function () {
-            var layer = layui.layer;  //layer初始化
+            var layer;
+            layui.use("layer", function () {
+                 //layer初始化
+                layer = layui.layer;
+                }
+            );
             var $ = layui.jquery, element = layui.element;
             element.on('nav(cbcdl)', function (elem) {
-               // alert(elem.text());
-                 layui.use("layer", function () {
-                     var layer = layui.layer;  //layer初始化
-                     layer.msg(elem.text());
-                 });
+                if (!elem.attr('data-url') == "0") {
+                    getFunction(elem.attr('data-id'));
+                    //layui.use("layer", function (){
+                    //     var layer = layui.layer;  //layer初始化
+                    //     layer.msg(elem.attr('data-id'));
+                    //    }
+                    //);
+                }
              });
             //获取所有的菜单
             $.ajax({
@@ -111,7 +123,7 @@
                 if (obj.childrenList != null && obj.childrenList.length > 0) {
                     $.each(obj.childrenList, function (i, note) {
                         content += '<dd>';
-                        content += '<a href="javascript:;">' + note.meunTitle + '</a>';
+                        content += '<a href="javascript:;"data-url="'+note.meunParent+'" data-id="'+note.id+'">' + note.meunTitle + '</a>';
                         if (note.childrenList == null) {
                             return;
                         }
@@ -120,7 +132,7 @@
                     });
                     content += '</dl>';
                 }
-                console.log(content);
+                //console.log(content);
                 return content;
             }
         });

@@ -269,8 +269,6 @@ F:\VS\RBook_WY\bin\Microsoft.VisualStudio.TextManager.Interop.dll
 F:\VS\RBook_WY\bin\stdole.dll
 F:\VS\RBook_WY\bin\EntityFramework.xml
 F:\VS\RBook_WY\bin\EntityFramework.SqlServer.xml
-F:\VS\RBook_WY\bin\SQLite.Designer.pdb
-F:\VS\RBook_WY\bin\SQLite.Designer.xml
 F:\VS\RBook_WY\bin\System.Data.SQLite.xml
 F:\VS\RBook_WY\bin\System.Data.SQLite.dll.config
 F:\VS\RBook_WY\bin\System.Web.Helpers.xml
@@ -283,6 +281,7 @@ F:\VS\RBook_WY\bin\System.Web.WebPages.Razor.xml
 F:\VS\RBook_WY\bin\Newtonsoft.Json.xml
 F:\VS\RBook_WY\bin\Antlr3.Runtime.pdb
 F:\VS\RBook_WY\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\VS\RBook_WY\bin\zh-Hans\EntityFramework.resources.dll
 F:\VS\RBook_WY\bin\zh-Hans\System.Web.Helpers.resources.dll
 F:\VS\RBook_WY\bin\zh-Hans\System.Web.Mvc.resources.dll
 F:\VS\RBook_WY\bin\zh-Hans\System.Web.Optimization.resources.dll
@@ -295,4 +294,3 @@ F:\VS\RBook_WY\obj\Debug\R_bookWY.csproj.CoreCompileInputs.cache
 F:\VS\RBook_WY\obj\Debug\R_bookWY.csproj.CopyComplete
 F:\VS\RBook_WY\obj\Debug\R_bookWY.dll
 F:\VS\RBook_WY\obj\Debug\R_bookWY.pdb
-F:\VS\RBook_WY\bin\zh-Hans\EntityFramework.resources.dll

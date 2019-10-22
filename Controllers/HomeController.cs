@@ -23,7 +23,7 @@ namespace R_bookWY.Controllers
             BookEntities bk = new BookEntities();
             //获取所有的菜单(包括子菜单和父级菜单)
             List<MeunInfo> list = new List<MeunInfo>();
-            string sql = "select * from t_moudle where upcode = '-1'";
+            string sql = "select * from t_moudle where upcode = '-1' order by id";
             List<t_moudle> tu = bk.Database.SqlQuery<t_moudle>(sql).ToList();
             for (int i = 0; i < tu.Count; i++)
             {
@@ -31,21 +31,21 @@ namespace R_bookWY.Controllers
                 mi.id = tu[i].id;
                 mi.meunTitle = tu[i].name;
                 mi.meunUrl = tu[i].url;
-                mi.meunParent = tu[i].upcode;
+                mi.meunParent = "0";
                 mi.childrenList = new List<MeunInfo>();
                 list.Add(mi);
             }
             for (int i = 0; i < list.Count; i++)
             {
-                sql = "select * from t_moudle where upcode = '" + list[i].id + "'";
+                sql = "select * from t_moudle where upcode = '" + list[i].id + "' order by id";
                 List<t_moudle> tup = bk.Database.SqlQuery<t_moudle>(sql).ToList();
                 for (int p = 0; p < tup.Count; p++)
                 {
                     MeunInfo mi = new MeunInfo();
-                    mi.id = tup[i].id;
-                    mi.meunTitle = tup[i].name;
-                    mi.meunUrl = tup[i].url;
-                    mi.meunParent = tup[i].upcode;
+                    mi.id = tup[p].id;
+                    mi.meunTitle = tup[p].name;
+                    mi.meunUrl = tup[p].url;
+                    mi.meunParent = tup[p].upcode;
                     list[i].childrenList.Add(mi);
                 }
             }
